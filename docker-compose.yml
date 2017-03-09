@@ -20,6 +20,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - "./simplesamlphp-sp/conf:/var/www/conf"
       - "./simplesamlphp-sp/docker-entrypoint.sh:/usr/local/bin/http-foreground"
     container_name: "simplesamlphp-sp"
     entrypoint: /usr/local/bin/http-foreground"
