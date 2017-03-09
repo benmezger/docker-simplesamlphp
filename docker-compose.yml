@@ -1,0 +1,28 @@
+version: '2'
+services:
+  simplesamlphp-idp:
+    build: 
+      context: ./simplesamlphp-idp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./simplesamlphp-idp/conf:/var/www/conf/"
+      - "./simplesamlphp-idp/docker-entrypoint.sh:/http-foreground"
+    container_name: "simplesamlphp-idp"
+    entrypoint: /usr/local/bin/http-foreground
+    logging:
+      driver: "journald"
+  simplesamlphp-sp:
+    build:
+      context: ./simplesamlphp-sp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./simplesamlphp-sp/docker-entrypoint.sh:/usr/local/bin/http-foreground"
+    container_name: "simplesamlphp-sp"
+    entrypoint: /usr/local/bin/http-foreground"
+    logging:
+      driver: "journald"
+
