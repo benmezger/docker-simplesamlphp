@@ -18,9 +18,3 @@ RUN ssp_version=1.14.11; \
     && mv simplesamlphp-$ssp_version simplesamlphp \
     && rm /simplesamlphp-$ssp_version.tar.gz
 
-RUN echo $'\nSetEnv SIMPLESAMLPHP_CONFIG_DIR /var/simplesamlphp/config\nAlias /simplesaml /var/simplesamlphp/www\n \
-<Directory /var/simplesamlphp/www>\n \
-    Require all granted\n \
-</Directory>\n' \
-       >> /etc/httpd/conf/httpd.conf
-

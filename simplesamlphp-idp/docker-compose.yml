@@ -9,7 +9,8 @@ services:
     volumes:
       - "./config:/var/www/simplesamlphp/config"
       - "./metadata:/var/www/simplesamlphp/metadata"
-      - "./simplesamlphp-idp/docker-entrypoint.sh:/http-foreground"
+      - "./apache/simplesamlphp.conf:/etc/httpd/conf/httpd.conf"
+      - "./simplesamlphp/docker-entrypoint.sh:/http-foreground"
     container_name: "simplesamlphp-idp"
     entrypoint: /usr/local/bin/http-foreground
     logging:
