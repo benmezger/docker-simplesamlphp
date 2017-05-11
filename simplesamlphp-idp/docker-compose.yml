@@ -7,10 +7,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "./config:/var/www/simplesamlphp/config"
-      - "./metadata:/var/www/simplesamlphp/metadata"
+      - "./config:/var/simplesamlphp/config"
+      - "./metadata:/var/simplesamlphp/metadata"
       - "./apache/simplesamlphp.conf:/etc/httpd/conf/httpd.conf"
-      - "./simplesamlphp/docker-entrypoint.sh:/http-foreground"
+      - "./simplesamlphp/docker-entrypoint.sh:/usr/local/bin/http-foreground"
     container_name: "simplesamlphp-idp"
     entrypoint: /usr/local/bin/http-foreground
     logging:
